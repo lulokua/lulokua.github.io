@@ -1350,6 +1350,11 @@ pre .javascript .function {
   flex-direction: column;
   color: #979797;
   margin-bottom: 10px;
+  padding: 80px 0 60px;
+  background: #ffffff;
+}
+.footer::before {
+  display: none;
 }
 .footer p {
   font-family: 'MiSans', 'Helvetica Neue', Arial, 'Heiti SC', 'Microsoft YaHei', sans-serif;
@@ -1397,7 +1402,7 @@ pre .javascript .function {
 }
 .list-inline.text-center li a span i {
   line-height: 20px;
-  color: white;
+  color: #ffffff;
 }
 .list-inline.text-center li:hover {
   background-color: #333333;
