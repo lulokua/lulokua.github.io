@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang=zh-CN>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:description" content="">
+    <meta property="og:type" content="website">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        使用Codex辅助给Clash For Windows换内核 - My Blog
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_28hi1hpxx24.css" rel="stylesheet" type="text/css">
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+
+    
+
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Born to Explore </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar radius">
+            <img src="https://q.qlogo.cn/headimg_dl?dst_uin=1639622785&amp;spec=640&amp;img_type=jpg" />
+        </div>
+        <div class="name">
+            <i>吕桉迪</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/plans/">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>我的计划</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E6%8F%90%E6%9D%A1%E4%BB%B6"><span class="toc-text">前提条件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BDClash-For-Windows"><span class="toc-text">下载Clash For Windows</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%BE%E5%88%B0Clash-For-Windows%E5%86%85%E6%A0%B8"><span class="toc-text">找到Clash For Windows内核</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%80%E5%A7%8B%E5%B7%A5%E4%BD%9C"><span class="toc-text">开始工作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Codex%E5%AE%89%E8%A3%85"><span class="toc-text">Codex安装</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-bg" id="search-bg"></div>
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Born to Explore </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        使用Codex辅助给Clash For Windows换内核
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2026-05-29 16:09:26</span></span>
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content no-indent">
+        <h2 id="前提条件"><a href="#前提条件" class="headerlink" title="前提条件"></a>前提条件</h2><p>我一直使用的是Clash Verge，但是我这个人比较怀念前面的Clash for windows版本，但是核心等等都已经全部都落后了，但是没有关系，直接换内核就好了</p>
+<h3 id="下载Clash-For-Windows"><a href="#下载Clash-For-Windows" class="headerlink" title="下载Clash For Windows"></a>下载Clash For Windows</h3><p>因为官方删除仓库的原因所以我打算去archive.org上下载</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://archive.org/download/clash_for_windows_pkg</span><br></pre></td></tr></table></figure>
+<p>下载完成之后进行按照到c盘(建议)</p>
+<h3 id="找到Clash-For-Windows内核"><a href="#找到Clash-For-Windows内核" class="headerlink" title="找到Clash For Windows内核"></a>找到Clash For Windows内核</h3><p>以下是举例内核位置，内核名称为 clash-win64 （如果是32位系统就是32）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\Program Files\Clash for Windows\resources\static\files\win\x64</span><br></pre></td></tr></table></figure>
+<p>您可以在桌面右键 Clash for Windows图标 点击 打开文件所在的位置 。<br>您就会跳到Clash for Windows文件的目录，然后继续到 \resources\static\files\win\x64<br>您会看到 clash-win64的名称</p>
+<h2 id="开始工作"><a href="#开始工作" class="headerlink" title="开始工作"></a>开始工作</h2><p>安装mihomo内核</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://github.com/MetaCubeX/mihomo/releases</span><br></pre></td></tr></table></figure>
+<p>找到最新的的版本，下载mihomo-windows-amd64-xxxx.zip</p>
+<hr>
+<p>注意:xxxx是每次都不是固定的，所以要自己去判断，只要找到amd64就没有问题了</p>
+<hr>
+<p>下载下来之后放到跟Clash For Windows内核的目录</p>
+<h2 id="Codex安装"><a href="#Codex安装" class="headerlink" title="Codex安装"></a>Codex安装</h2><p>进入内核目录打开Codex</p>
+<p>输入提示词<br>安装内核提示词</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">你现在在的是Clash for Windows的内核目录，我已经把mihomo内核的压缩包放在这个目录，请你帮我把现在的内核更换成mihomo内核，顺便再进行测试验证</span><br></pre></td></tr></table></figure>
+<hr>
+<p>这一步建议直接安装TUN虚拟网卡模式,如果不会，可以不用安装</p>
+<hr>
+<p>安装内核跟TUN提示词</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">你现在在的是Clash for Windows的内核目录，我已经把mihomo内核的压缩包放在这个目录，请你帮我把现在的内核更换成mihomo内核，后门内核后帮我安装TUN虚拟网卡模式,顺便再进行测试验证</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>注意:上面两种提示词只需要选择一种即可</p>
+<hr>
+
+        
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/lulokua">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>  Theme <a target="_blank" rel="noopener" href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+    <p>
+        <span>
+            <a href="https://icp.gov.moe/?keyword=20262024" target="_blank" rel="noopener noreferrer">萌ICP备20262024号</a>
+        </span>
+    </p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+</html>
