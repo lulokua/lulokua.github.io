@@ -1,4 +1,11 @@
 @font-face {
+  font-family: 'Anthropic Sans';
+  src: url('https://firebasestorage.googleapis.com/v0/b/standards-site-beta.appspot.com/o/documents%2Ff1cae3aec67%2Ff0e57950fa4%2FAnthropicSansVariableVariable-TextRegular.ttf?alt=media&token=b40a8caf-26e2-48af-8a78-47296e846090') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
   font-family: 'MiSans';
   src: url('https://my-blog.cn-nb1.rains3.com/my-blog-fonts/MiSans-Light.woff2') format('woff2');
   font-weight: 300;
@@ -28,7 +35,7 @@
 }
 /*varibles*/
 * {
-  font-family: 'MiSans', 'Helvetica Neue', Arial, 'Heiti SC', 'Microsoft YaHei', sans-serif;
+  font-family: 'Anthropic Sans', 'MiSans', 'Helvetica Neue', Arial, 'Heiti SC', 'Microsoft YaHei', sans-serif;
 }
 body,
 html {
@@ -163,7 +170,7 @@ body {
 }
 .nav .avatar-name .name i {
   font-size: 16px;
-  font-family: 'MiSans', 'Helvetica Neue', Arial, 'Heiti SC', 'Microsoft YaHei', sans-serif !important;
+  font-family: 'Anthropic Sans', 'MiSans', 'Helvetica Neue', Arial, 'Heiti SC', 'Microsoft YaHei', sans-serif !important;
   font-style: oblique 8deg;
   font-weight: 300;
   color: #666666;
@@ -380,7 +387,7 @@ body {
   }
 }
 .about-page .post-content {
-  font-family: 'MiSans', 'Helvetica Neue', Arial, 'Heiti SC', 'Microsoft YaHei', sans-serif;
+  font-family: 'Anthropic Sans', 'MiSans', 'Helvetica Neue', Arial, 'Heiti SC', 'Microsoft YaHei', sans-serif;
   font-size: 16px;
   line-height: 1.9;
   letter-spacing: 0.02em;
@@ -388,7 +395,7 @@ body {
   text-indent: 0;
 }
 .about-page .post-content p {
-  font-family: 'MiSans', 'Helvetica Neue', Arial, 'Heiti SC', 'Microsoft YaHei', sans-serif;
+  font-family: 'Anthropic Sans', 'MiSans', 'Helvetica Neue', Arial, 'Heiti SC', 'Microsoft YaHei', sans-serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 1.9;
@@ -399,7 +406,7 @@ body {
   color: #2f3339;
 }
 .about-page .post-content h1 {
-  font-family: 'MiSans', 'Helvetica Neue', Arial, 'Heiti SC', 'Microsoft YaHei', sans-serif;
+  font-family: 'Anthropic Sans', 'MiSans', 'Helvetica Neue', Arial, 'Heiti SC', 'Microsoft YaHei', sans-serif;
   font-size: 24px;
   font-weight: 700;
   letter-spacing: 0.05em;
@@ -412,7 +419,7 @@ body {
   padding-bottom: 8px;
 }
 .about-page .post-content h2 {
-  font-family: 'MiSans', 'Helvetica Neue', Arial, 'Heiti SC', 'Microsoft YaHei', sans-serif;
+  font-family: 'Anthropic Sans', 'MiSans', 'Helvetica Neue', Arial, 'Heiti SC', 'Microsoft YaHei', sans-serif;
   font-size: 20px;
   font-weight: 600;
   letter-spacing: 0.04em;
@@ -423,7 +430,7 @@ body {
   word-break: normal;
 }
 .about-page .post-content h3 {
-  font-family: 'MiSans', 'Helvetica Neue', Arial, 'Heiti SC', 'Microsoft YaHei', sans-serif;
+  font-family: 'Anthropic Sans', 'MiSans', 'Helvetica Neue', Arial, 'Heiti SC', 'Microsoft YaHei', sans-serif;
   font-size: 18px;
   font-weight: 600;
   letter-spacing: 0.03em;
@@ -436,7 +443,7 @@ body {
 .about-page .post-content h4,
 .about-page .post-content h5,
 .about-page .post-content h6 {
-  font-family: 'MiSans', 'Helvetica Neue', Arial, 'Heiti SC', 'Microsoft YaHei', sans-serif;
+  font-family: 'Anthropic Sans', 'MiSans', 'Helvetica Neue', Arial, 'Heiti SC', 'Microsoft YaHei', sans-serif;
   font-weight: 600;
   color: #2a2a3e;
   line-height: 1.4;
@@ -444,19 +451,19 @@ body {
 }
 .about-page .post-content strong,
 .about-page .post-content b {
-  font-family: 'MiSans', 'Helvetica Neue', Arial, 'Heiti SC', 'Microsoft YaHei', sans-serif;
+  font-family: 'Anthropic Sans', 'MiSans', 'Helvetica Neue', Arial, 'Heiti SC', 'Microsoft YaHei', sans-serif;
   font-weight: 600;
   color: #1a1a2e;
 }
 .about-page .post-content em,
 .about-page .post-content i {
-  font-family: 'MiSans', 'Helvetica Neue', Arial, 'Heiti SC', 'Microsoft YaHei', sans-serif;
+  font-family: 'Anthropic Sans', 'MiSans', 'Helvetica Neue', Arial, 'Heiti SC', 'Microsoft YaHei', sans-serif;
   font-style: oblique 8deg;
   color: #3a3a50;
 }
 .about-page .post-content strong em,
 .about-page .post-content em strong {
-  font-family: 'MiSans', 'Helvetica Neue', Arial, 'Heiti SC', 'Microsoft YaHei', sans-serif;
+  font-family: 'Anthropic Sans', 'MiSans', 'Helvetica Neue', Arial, 'Heiti SC', 'Microsoft YaHei', sans-serif;
   font-weight: 600;
   font-style: oblique 8deg;
   color: #1a1a2e;
@@ -468,7 +475,7 @@ body {
   margin: 24px 0;
 }
 .about-page .post-content a {
-  font-family: 'MiSans', 'Helvetica Neue', Arial, 'Heiti SC', 'Microsoft YaHei', sans-serif;
+  font-family: 'Anthropic Sans', 'MiSans', 'Helvetica Neue', Arial, 'Heiti SC', 'Microsoft YaHei', sans-serif;
   color: #4990E2;
   text-decoration: none;
   border-bottom: 1px solid transparent;
@@ -483,7 +490,7 @@ body {
 }
 .about-page .post-content ul li,
 .about-page .post-content ol li {
-  font-family: 'MiSans', 'Helvetica Neue', Arial, 'Heiti SC', 'Microsoft YaHei', sans-serif;
+  font-family: 'Anthropic Sans', 'MiSans', 'Helvetica Neue', Arial, 'Heiti SC', 'Microsoft YaHei', sans-serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 1.85;
@@ -503,7 +510,7 @@ body {
   border-radius: 0 4px 4px 0;
 }
 .about-page .post-content blockquote p {
-  font-family: 'MiSans', 'Helvetica Neue', Arial, 'Heiti SC', 'Microsoft YaHei', sans-serif;
+  font-family: 'Anthropic Sans', 'MiSans', 'Helvetica Neue', Arial, 'Heiti SC', 'Microsoft YaHei', sans-serif;
   font-style: oblique 6deg;
   font-size: 15.5px;
   color: #555566;
@@ -991,7 +998,7 @@ body {
 }
 .index-about i {
   font-size: 15px;
-  font-family: 'MiSans', 'Helvetica Neue', Arial, 'Heiti SC', 'Microsoft YaHei', sans-serif !important;
+  font-family: 'Anthropic Sans', 'MiSans', 'Helvetica Neue', Arial, 'Heiti SC', 'Microsoft YaHei', sans-serif !important;
   font-style: oblique 8deg;
   font-weight: 300;
   color: #444444;
@@ -1063,7 +1070,7 @@ body {
   }
   .index-about-mobile i {
     font-size: 15px;
-    font-family: 'MiSans', 'Helvetica Neue', Arial, 'Heiti SC', 'Microsoft YaHei', sans-serif !important;
+    font-family: 'Anthropic Sans', 'MiSans', 'Helvetica Neue', Arial, 'Heiti SC', 'Microsoft YaHei', sans-serif !important;
     font-style: oblique 8deg;
     font-weight: 300;
     color: #444444;
@@ -1357,7 +1364,7 @@ pre .javascript .function {
   display: none;
 }
 .footer p {
-  font-family: 'MiSans', 'Helvetica Neue', Arial, 'Heiti SC', 'Microsoft YaHei', sans-serif;
+  font-family: 'Anthropic Sans', 'MiSans', 'Helvetica Neue', Arial, 'Heiti SC', 'Microsoft YaHei', sans-serif;
   font-size: 14px;
   margin-top: 5px;
   margin-bottom: 0;
@@ -1368,13 +1375,13 @@ pre .javascript .function {
 }
 .footer p a {
   font-weight: 300;
-  font-family: 'MiSans', 'Helvetica Neue', Arial, 'Heiti SC', 'Microsoft YaHei', sans-serif;
+  font-family: 'Anthropic Sans', 'MiSans', 'Helvetica Neue', Arial, 'Heiti SC', 'Microsoft YaHei', sans-serif;
   cursor: pointer;
   color: #333333;
 }
 .footer p span a {
   font-weight: 300;
-  font-family: 'MiSans', 'Helvetica Neue', Arial, 'Heiti SC', 'Microsoft YaHei', sans-serif;
+  font-family: 'Anthropic Sans', 'MiSans', 'Helvetica Neue', Arial, 'Heiti SC', 'Microsoft YaHei', sans-serif;
   cursor: pointer;
   color: #979797;
   text-decoration: none;
@@ -1415,7 +1422,7 @@ pre .javascript .function {
   }
   .footer p {
     word-break: break-all;
-    font-family: 'MiSans', 'Helvetica Neue', Arial, 'Heiti SC', 'Microsoft YaHei', sans-serif;
+    font-family: 'Anthropic Sans', 'MiSans', 'Helvetica Neue', Arial, 'Heiti SC', 'Microsoft YaHei', sans-serif;
     font-size: 11px;
     margin-top: 5px;
     margin-bottom: 0;
@@ -1426,7 +1433,7 @@ pre .javascript .function {
   .footer p span a {
     font-size: 11px;
     font-weight: 300;
-    font-family: 'MiSans', 'Helvetica Neue', Arial, 'Heiti SC', 'Microsoft YaHei', sans-serif;
+    font-family: 'Anthropic Sans', 'MiSans', 'Helvetica Neue', Arial, 'Heiti SC', 'Microsoft YaHei', sans-serif;
     cursor: pointer;
     color: #979797;
     text-decoration: none;
