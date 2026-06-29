@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang=zh-CN>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:description" content="">
+    <meta property="og:type" content="website">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        我的 Mihomo DNS 写法：国内快，国外稳，尽量避开污染 - My Blog
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_28hi1hpxx24.css" rel="stylesheet" type="text/css">
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+
+    
+
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Born to Explore </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar radius">
+            <img src="https://q.qlogo.cn/headimg_dl?dst_uin=1639622785&amp;spec=640&amp;img_type=jpg" />
+        </div>
+        <div class="name">
+            <i>吕桉迪</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>Home</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>Archives</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>About</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>Search</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%88%91%E7%9A%84-Mihomo-DNS-%E5%86%99%E6%B3%95%EF%BC%9A%E5%9B%BD%E5%86%85%E5%BF%AB%EF%BC%8C%E5%9B%BD%E5%A4%96%E7%A8%B3%EF%BC%8C%E5%B0%BD%E9%87%8F%E9%81%BF%E5%BC%80%E6%B1%A1%E6%9F%93"><span class="toc-text">我的 Mihomo DNS 写法：国内快，国外稳，尽量避开污染</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%88%91%E7%9A%84%E7%9B%AE%E6%A0%87"><span class="toc-text">我的目标</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E9%85%8D%E7%BD%AE"><span class="toc-text">核心配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%BF%99%E6%A0%B7%E5%86%99"><span class="toc-text">为什么这样写</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-DNS-%E5%8F%AA%E7%9B%91%E5%90%AC%E6%9C%AC%E6%9C%BA"><span class="toc-text">1. DNS 只监听本机</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E7%BB%A7%E7%BB%AD%E4%BD%BF%E7%94%A8-fake-ip"><span class="toc-text">2. 继续使用 fake-ip</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-default-nameserver-%E7%94%A8%E5%9B%BD%E5%86%85%E5%85%AC%E5%85%B1-DNS-%E5%81%9A%E5%90%AF%E5%8A%A8%E8%A7%A3%E6%9E%90"><span class="toc-text">3. default-nameserver 用国内公共 DNS 做启动解析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%9B%BD%E5%86%85%E8%A7%A3%E6%9E%90%E8%B5%B0%E9%98%BF%E9%87%8C-DNS-%E5%92%8C-DNSPod-%E7%9A%84%E5%8A%A0%E5%AF%86-DNS"><span class="toc-text">4. 国内解析走阿里 DNS 和 DNSPod 的加密 DNS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E5%9B%BD%E5%A4%96%E5%92%8C%E6%95%8F%E6%84%9F%E5%9F%9F%E5%90%8D%E4%BA%A4%E7%BB%99-fallback"><span class="toc-text">5. 国外和敏感域名交给 fallback</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-fallback-filter-%E5%86%B3%E5%AE%9A%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E7%94%A8%E6%B5%B7%E5%A4%96%E7%BB%93%E6%9E%9C"><span class="toc-text">6. fallback-filter 决定什么时候用海外结果</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-nameserver-policy-%E5%8F%AA%E4%BF%9D%E7%95%99%E5%A4%A7%E6%96%B9%E5%90%91"><span class="toc-text">7. nameserver-policy 只保留大方向</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-fake-ip-filter-%E4%B8%8D%E8%A6%81%E4%B9%B1%E5%88%A0"><span class="toc-text">8. fake-ip-filter 不要乱删</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%88%91%E4%B8%8D%E6%8E%A8%E8%8D%90%E7%9A%84%E5%86%99%E6%B3%95"><span class="toc-text">我不推荐的写法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%89%80%E6%9C%89%E5%9F%9F%E5%90%8D%E9%83%BD%E8%B5%B0%E6%B5%B7%E5%A4%96-DNS"><span class="toc-text">1. 所有域名都走海外 DNS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%89%80%E6%9C%89%E5%9F%9F%E5%90%8D%E9%83%BD%E8%B5%B0%E5%9B%BD%E5%86%85%E6%99%AE%E9%80%9A-DNS"><span class="toc-text">2. 所有域名都走国内普通 DNS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E7%94%A8%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%A7%A3%E6%9E%90%E7%BB%93%E6%9E%9C%E7%9B%B4%E6%8E%A5%E5%88%A4%E6%96%AD-fake-ip-%E9%85%8D%E7%BD%AE%E5%9D%8F%E4%BA%86"><span class="toc-text">3. 用命令行解析结果直接判断 fake-ip 配置坏了</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-nameserver-policy-%E5%86%99%E5%BE%97%E8%BF%87%E7%BB%86"><span class="toc-text">4. nameserver-policy 写得过细</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%AA%8C%E8%AF%81%E6%96%B9%E5%BC%8F"><span class="toc-text">验证方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-text">总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-text">参考资料</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-bg" id="search-bg"></div>
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">Search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Born to Explore </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        我的 Mihomo DNS 写法：国内快，国外稳，尽量避开污染
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2026-06-29 12:52:44</span></span>
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content no-indent">
+        <h1 id="我的-Mihomo-DNS-写法：国内快，国外稳，尽量避开污染"><a href="#我的-Mihomo-DNS-写法：国内快，国外稳，尽量避开污染" class="headerlink" title="我的 Mihomo DNS 写法：国内快，国外稳，尽量避开污染"></a>我的 Mihomo DNS 写法：国内快，国外稳，尽量避开污染</h1><p>本文基于我自己的 <code>echo.yaml</code> 配置整理。我的使用场景很明确：人在大陆，国内网站要快，国外网站、AI 服务、GitHub、Google、YouTube 这类站点也要稳定，并且尽量减少 DNS 污染对访问结果的影响。</p>
+<p>这套配置不是为了追求某个 DNS 跑分第一，而是让 DNS、代理规则、<code>fake-ip</code> 模式配合起来，做到日常使用稳定、逻辑清晰、后续维护简单。</p>
+<h2 id="我的目标"><a href="#我的目标" class="headerlink" title="我的目标"></a>我的目标</h2><ol>
+<li>国内域名优先使用国内加密 DNS，减少解析绕路。</li>
+<li>国外和容易被污染的域名交给海外加密 DNS 兜底。</li>
+<li>使用 <code>fake-ip</code> 模式，让 Mihomo 根据规则接管后续连接。</li>
+<li>不在 <code>nameserver-policy</code> 里堆大量重复域名，保持配置可维护。</li>
+<li>保留原来的 <code>fake-ip-filter</code>，避免影响局域网、NTP、系统连通性检测等场景。</li>
+</ol>
+<h2 id="核心配置"><a href="#核心配置" class="headerlink" title="核心配置"></a>核心配置</h2><p>下面是我 DNS 段的核心写法。实际配置里 <code>fake-ip-filter</code> 还有一长串域名，我保留原列表不动，这里只展示 DNS 决策相关的主体部分。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">dns:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">listen:</span> <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span><span class="string">:1053</span></span><br><span class="line">  <span class="attr">ipv6:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">enhanced-mode:</span> <span class="string">fake-ip</span></span><br><span class="line">  <span class="attr">fake-ip-range:</span> <span class="number">198.18</span><span class="number">.0</span><span class="number">.1</span><span class="string">/16</span></span><br><span class="line">  <span class="attr">use-hosts:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">respect-rules:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">default-nameserver:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="number">223.5</span><span class="number">.5</span><span class="number">.5</span></span><br><span class="line">    <span class="bullet">-</span> <span class="number">223.6</span><span class="number">.6</span><span class="number">.6</span></span><br><span class="line">    <span class="bullet">-</span> <span class="number">119.29</span><span class="number">.29</span><span class="number">.29</span></span><br><span class="line">  <span class="attr">proxy-server-nameserver:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="number">223.5</span><span class="number">.5</span><span class="number">.5</span></span><br><span class="line">    <span class="bullet">-</span> <span class="number">223.6</span><span class="number">.6</span><span class="number">.6</span></span><br><span class="line">    <span class="bullet">-</span> <span class="number">119.29</span><span class="number">.29</span><span class="number">.29</span></span><br><span class="line">  <span class="attr">direct-nameserver:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">https://dns.alidns.com/dns-query</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">https://doh.pub/dns-query</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">tls://dns.alidns.com:853</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">tls://dot.pub:853</span></span><br><span class="line">  <span class="attr">nameserver:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">https://dns.alidns.com/dns-query</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">https://doh.pub/dns-query</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">tls://dns.alidns.com:853</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">tls://dot.pub:853</span></span><br><span class="line">  <span class="attr">fallback:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">https://cloudflare-dns.com/dns-query</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">https://dns.google/dns-query</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">tls://1.1.1.1:853</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">tls://8.8.8.8:853</span></span><br><span class="line">  <span class="attr">fallback-filter:</span></span><br><span class="line">    <span class="attr">geoip:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">geoip-code:</span> <span class="string">CN</span></span><br><span class="line">    <span class="attr">geosite:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">gfw</span></span><br><span class="line">    <span class="attr">ipcidr:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="number">240.0</span><span class="number">.0</span><span class="number">.0</span><span class="string">/4</span></span><br><span class="line">    <span class="attr">domain:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">+.google.com</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">+.googleapis.com</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">+.googlevideo.com</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">+.gstatic.com</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">+.youtube.com</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">+.youtu.be</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">+.openai.com</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">+.chatgpt.com</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">+.oaistatic.com</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">+.oaiusercontent.com</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">+.anthropic.com</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">+.claude.ai</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">+.claudeusercontent.com</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">+.perplexity.ai</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">+.poe.com</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">+.cursor.com</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">+.cursor.sh</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">+.deepseek.com</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">+.deepseek.ai</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">+.x.ai</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">+.grok.com</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">+.github.com</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">+.github.io</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">+.githubassets.com</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">+.githubusercontent.com</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">+.githubapp.com</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">+.github.dev</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">+.facebook.com</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">+.twitter.com</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">+.x.com</span></span><br><span class="line">  <span class="attr">nameserver-policy:</span></span><br><span class="line">    <span class="string">&quot;geosite:cn,private&quot;</span><span class="string">:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">https://dns.alidns.com/dns-query</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">https://doh.pub/dns-query</span></span><br><span class="line">  <span class="attr">fake-ip-filter:</span></span><br><span class="line">    <span class="comment"># 这里保留原配置中的局域网、NTP、系统检测等真实 IP 白名单</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="为什么这样写"><a href="#为什么这样写" class="headerlink" title="为什么这样写"></a>为什么这样写</h2><h3 id="1-DNS-只监听本机"><a href="#1-DNS-只监听本机" class="headerlink" title="1. DNS 只监听本机"></a>1. DNS 只监听本机</h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">listen:</span> <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span><span class="string">:1053</span></span><br></pre></td></tr></table></figure>
+
+<p>我的配置里 <code>allow-lan: false</code>，也就是不打算给局域网其他设备使用。因此 DNS 监听在 <code>127.0.0.1</code> 更合适，只服务本机。</p>
+<p>如果后面要把这台机器当作局域网网关，给手机、平板或其他电脑使用，再改成：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">listen:</span> <span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span><span class="string">:1053</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-继续使用-fake-ip"><a href="#2-继续使用-fake-ip" class="headerlink" title="2. 继续使用 fake-ip"></a>2. 继续使用 fake-ip</h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">enhanced-mode:</span> <span class="string">fake-ip</span></span><br><span class="line"><span class="attr">fake-ip-range:</span> <span class="number">198.18</span><span class="number">.0</span><span class="number">.1</span><span class="string">/16</span></span><br></pre></td></tr></table></figure>
+
+<p><code>fake-ip</code> 模式下，命令行里看到域名解析成 <code>198.18.x.x</code> 是正常现象，不代表 DNS 坏了。这个地址段是 Mihomo 用来做连接映射的，真正访问时会结合代理规则、嗅探和连接目标继续处理。</p>
+<p>所以在这种模式下，不要只用 <code>nslookup</code> 或 <code>Resolve-DnsName</code> 的结果判断 DNS 好坏。更可靠的判断方式是看 Mihomo DNS 日志和实际访问结果。</p>
+<h3 id="3-default-nameserver-用国内公共-DNS-做启动解析"><a href="#3-default-nameserver-用国内公共-DNS-做启动解析" class="headerlink" title="3. default-nameserver 用国内公共 DNS 做启动解析"></a>3. default-nameserver 用国内公共 DNS 做启动解析</h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">default-nameserver:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="number">223.5</span><span class="number">.5</span><span class="number">.5</span></span><br><span class="line">  <span class="bullet">-</span> <span class="number">223.6</span><span class="number">.6</span><span class="number">.6</span></span><br><span class="line">  <span class="bullet">-</span> <span class="number">119.29</span><span class="number">.29</span><span class="number">.29</span></span><br></pre></td></tr></table></figure>
+
+<p><code>default-nameserver</code> 主要用于解析 DoH&#x2F;DoT 服务器本身的域名，也就是启动阶段的基础解析。这里我选择阿里 DNS 和 DNSPod 的国内公共 DNS，因为它们在大陆网络里通常更近、更容易连通。</p>
+<p>我没有把 <code>114.114.114.114</code> 放在主解析里。它在很多网络里确实很快，但它是传统明文 DNS，不适合作为这套“尽量减少污染和劫持”的配置核心。</p>
+<h3 id="4-国内解析走阿里-DNS-和-DNSPod-的加密-DNS"><a href="#4-国内解析走阿里-DNS-和-DNSPod-的加密-DNS" class="headerlink" title="4. 国内解析走阿里 DNS 和 DNSPod 的加密 DNS"></a>4. 国内解析走阿里 DNS 和 DNSPod 的加密 DNS</h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">nameserver:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">https://dns.alidns.com/dns-query</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">https://doh.pub/dns-query</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">tls://dns.alidns.com:853</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">tls://dot.pub:853</span></span><br></pre></td></tr></table></figure>
+
+<p><code>nameserver</code> 是日常主解析。我这里没有使用单一服务，而是同时配置阿里 DNS 和 DNSPod，并且同时使用 DoH 和 DoT。</p>
+<p>这样做的原因很简单：</p>
+<ol>
+<li>国内域名用国内 DNS，解析结果通常更适合大陆网络。</li>
+<li>DoH&#x2F;DoT 是加密 DNS，比普通 UDP DNS 更不容易被中间链路篡改。</li>
+<li>不单押一家服务，某一家偶发慢或者不可用时还有其他选择。</li>
+</ol>
+<p>需要注意的是，公共免费 DNS 服务不等于企业级 SLA。比如阿里云公共 DNS 免费版官方就说明过免费版可能存在限速和服务保障限制，所以个人使用可以这样搭配，但高并发业务不要直接照搬。</p>
+<h3 id="5-国外和敏感域名交给-fallback"><a href="#5-国外和敏感域名交给-fallback" class="headerlink" title="5. 国外和敏感域名交给 fallback"></a>5. 国外和敏感域名交给 fallback</h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">fallback:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">https://cloudflare-dns.com/dns-query</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">https://dns.google/dns-query</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">tls://1.1.1.1:853</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">tls://8.8.8.8:853</span></span><br></pre></td></tr></table></figure>
+
+<p><code>fallback</code> 里我放的是 Cloudflare 和 Google 的加密 DNS。它们更适合处理海外域名，尤其是 Google、YouTube、GitHub、OpenAI、Claude 这类服务。</p>
+<p>这里同样没有只写一个服务，而是 Cloudflare 和 Google 都放进去。原因还是稳定性：公共 DNS 服务本身也会受本地网络、运营商、时间段影响，多放几个可信 resolver 比单押一个更稳。</p>
+<h3 id="6-fallback-filter-决定什么时候用海外结果"><a href="#6-fallback-filter-决定什么时候用海外结果" class="headerlink" title="6. fallback-filter 决定什么时候用海外结果"></a>6. fallback-filter 决定什么时候用海外结果</h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">fallback-filter:</span></span><br><span class="line">  <span class="attr">geoip:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">geoip-code:</span> <span class="string">CN</span></span><br><span class="line">  <span class="attr">geosite:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">gfw</span></span><br><span class="line">  <span class="attr">ipcidr:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="number">240.0</span><span class="number">.0</span><span class="number">.0</span><span class="string">/4</span></span><br><span class="line">  <span class="attr">domain:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">+.google.com</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">+.openai.com</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">+.github.com</span></span><br></pre></td></tr></table></figure>
+
+<p><code>fallback-filter</code> 是这套配置里很关键的一层。它不是简单地让所有域名都走海外 DNS，而是只在需要的时候使用 fallback。</p>
+<p>我的思路是：</p>
+<ol>
+<li>国内站点尽量保留国内 DNS 结果。</li>
+<li>命中 <code>geosite:gfw</code> 的域名使用 fallback。</li>
+<li>Google、YouTube、OpenAI、Claude、GitHub 等明确容易被污染或需要代理访问的域名，直接列入 fallback 域名列表。</li>
+<li><code>240.0.0.0/4</code> 这类异常地址段作为过滤条件，避免明显不正常的解析结果。</li>
+</ol>
+<p>这样国内网站不会因为海外 DNS 解析而绕路，国外服务也不会因为国内 DNS 污染拿到错误结果。</p>
+<h3 id="7-nameserver-policy-只保留大方向"><a href="#7-nameserver-policy-只保留大方向" class="headerlink" title="7. nameserver-policy 只保留大方向"></a>7. nameserver-policy 只保留大方向</h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">nameserver-policy:</span></span><br><span class="line">  <span class="string">&quot;geosite:cn,private&quot;</span><span class="string">:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">https://dns.alidns.com/dns-query</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">https://doh.pub/dns-query</span></span><br></pre></td></tr></table></figure>
+
+<p>很多配置会在 <code>nameserver-policy</code> 里堆大量域名，比如每个 AI 网站、每个 GitHub 相关域名都单独写一遍。这样短期看起来很精细，但后期维护会越来越麻烦。</p>
+<p>我这里把策略收敛成一条：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;geosite:cn,private&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>国内和私有域名明确走国内加密 DNS。国外和敏感域名则通过 <code>fallback-filter</code> 去判断。这样配置更短，也更容易看懂。</p>
+<h3 id="8-fake-ip-filter-不要乱删"><a href="#8-fake-ip-filter-不要乱删" class="headerlink" title="8. fake-ip-filter 不要乱删"></a>8. fake-ip-filter 不要乱删</h3><p><code>fake-ip-filter</code> 主要用于告诉 Mihomo：哪些域名不要返回 fake-ip，而是保留真实 IP。</p>
+<p>我的配置里保留了局域网、NTP、时间同步、系统检测、部分游戏和服务发现相关域名。它们如果被 fake-ip 接管，可能会出现时间同步失败、局域网设备发现异常、系统联网检测不准确等问题。</p>
+<p>所以优化 DNS 时，我只替换 DNS 决策层，不动原来的 <code>fake-ip-filter</code> 列表。</p>
+<h2 id="我不推荐的写法"><a href="#我不推荐的写法" class="headerlink" title="我不推荐的写法"></a>我不推荐的写法</h2><h3 id="1-所有域名都走海外-DNS"><a href="#1-所有域名都走海外-DNS" class="headerlink" title="1. 所有域名都走海外 DNS"></a>1. 所有域名都走海外 DNS</h3><p>这样看起来“干净”，但国内网站可能拿到不适合大陆网络的解析结果，访问反而变慢。</p>
+<h3 id="2-所有域名都走国内普通-DNS"><a href="#2-所有域名都走国内普通-DNS" class="headerlink" title="2. 所有域名都走国内普通 DNS"></a>2. 所有域名都走国内普通 DNS</h3><p>国内网站通常没问题，但 Google、GitHub、YouTube、OpenAI 这类域名更容易受到污染或错误解析影响。</p>
+<h3 id="3-用命令行解析结果直接判断-fake-ip-配置坏了"><a href="#3-用命令行解析结果直接判断-fake-ip-配置坏了" class="headerlink" title="3. 用命令行解析结果直接判断 fake-ip 配置坏了"></a>3. 用命令行解析结果直接判断 fake-ip 配置坏了</h3><p>在 <code>fake-ip</code> 模式下，看到 <code>198.18.x.x</code> 是预期行为。最终要看浏览器访问、代理规则命中情况和 Mihomo 日志。</p>
+<h3 id="4-nameserver-policy-写得过细"><a href="#4-nameserver-policy-写得过细" class="headerlink" title="4. nameserver-policy 写得过细"></a>4. nameserver-policy 写得过细</h3><p>过细的域名策略短期能用，长期容易变成维护负担。我的做法是：国内和私有域名用 <code>nameserver-policy</code> 定方向，国外敏感域名用 <code>fallback-filter</code> 兜底。</p>
+<h2 id="验证方式"><a href="#验证方式" class="headerlink" title="验证方式"></a>验证方式</h2><p>重载配置后，我一般看这几类结果：</p>
+<ol>
+<li>Mihomo 或 Clash 客户端没有 DNS 字段报错。</li>
+<li>DNS 日志里，国内域名优先使用 <code>dns.alidns.com</code> 或 <code>doh.pub</code>。</li>
+<li>Google、OpenAI、GitHub、YouTube 等域名命中 fallback。</li>
+<li><code>baidu.com</code>、<code>bilibili.com</code>、<code>taobao.com</code> 访问保持快速。</li>
+<li><code>openai.com</code>、<code>chatgpt.com</code>、<code>github.com</code>、<code>google.com</code>、<code>youtube.com</code> 能稳定走代理规则。</li>
+</ol>
+<p>如果命令行里看到 <code>198.18.x.x</code>，先不要急着改配置。<code>fake-ip</code> 模式下这很正常，重点看实际访问和客户端日志。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>这套 DNS 配置的核心不是“哪个 DNS 最快”，而是分工：</p>
+<ol>
+<li>国内域名：国内加密 DNS，优先速度和本地化解析。</li>
+<li>国外敏感域名：海外加密 DNS fallback，优先稳定和避免污染。</li>
+<li>代理判断：交给 Mihomo 的规则和 <code>fake-ip</code> 机制处理。</li>
+<li>配置维护：少写重复策略，保留必要的 <code>fake-ip-filter</code>。</li>
+</ol>
+<p>对我这种大陆日常使用环境来说，这种写法比单纯堆 DNS 地址更稳定，也更容易长期维护。</p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://wiki.metacubex.one/en/config/dns/">Mihomo DNS 配置文档</a></li>
+<li><a target="_blank" rel="noopener" href="https://wiki.metacubex.one/en/config/dns/diagram/">Mihomo DNS 解析流程</a></li>
+<li><a target="_blank" rel="noopener" href="https://developers.cloudflare.com/1.1.1.1/encryption/dns-over-https/">Cloudflare DNS over HTTPS 文档</a></li>
+<li><a target="_blank" rel="noopener" href="https://developers.cloudflare.com/1.1.1.1/encryption/dns-over-tls/">Cloudflare DNS over TLS 文档</a></li>
+<li><a target="_blank" rel="noopener" href="https://developers.google.com/speed/public-dns/docs/doh">Google Public DNS DoH 文档</a></li>
+<li><a target="_blank" rel="noopener" href="https://developers.google.com/speed/public-dns/docs/dns-over-tls">Google Public DNS DoT 文档</a></li>
+<li><a target="_blank" rel="noopener" href="https://cloud.tencent.com/document/product/302/110784">DNSPod DoH 与 DoT 免费版说明</a></li>
+<li><a target="_blank" rel="noopener" href="https://help.aliyun.com/zh/dns/public-dns-free-version-access-speed-limit-notification-dns">阿里云公共 DNS 免费版接入限速通知</a></li>
+</ul>
+
+        
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/lulokua">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>  Theme <a target="_blank" rel="noopener" href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+    <p>
+        <span>
+            <a href="https://icp.gov.moe/?keyword=20262024" target="_blank" rel="noopener noreferrer">萌ICP备20262024号</a>
+        </span>
+    </p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+</html>
